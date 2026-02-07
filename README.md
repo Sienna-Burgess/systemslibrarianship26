@@ -12,5 +12,12 @@ As time goes on in this course, this description will change and include additio
 3. Configure Git on my server
 4. Clone, Edit, Commit, and Push
 
-**Topics Covered**
- 
+**Topics Covered:**
+
+ **Documentation Template:**
+- Goal: 
+- Context:
+- Steps:
+- Results:
+- Verification:
+- Notes:
