@@ -37,3 +37,15 @@ As time goes on in this course, this description will change and include additio
 - To edit using the text editor I chose: micro README.md
 
 
+### Week 5 Notes:
+- Goal: To search using the [grep] command to search through data.
+- Context: Utilizing the [grep] command to search and sort through large amounts of bibliographic data.
+
+** [grep] Command Line Notes:**
+Note: (filename) in these notes is where you enter name of the file you are searching in, you DO NOT need the file name in paranthesis.
+Note: "word" in these notes is what thing you want to search for, you have to have the word in quotation marks.
+Note: [grep] is case sensitive.
+- Basic [grep] search: grep "word" (file name)
+- To ignore wordcase sensitivity: grep "word" (file name)
+- To search lines that do not match out string, use the combination: grep -vi "word" (file name)
+- To remove the first row (best for spreadsheets with headers), you will need to have the "^" in the quotes:grep -vi "^word" (file name)
