@@ -44,8 +44,11 @@ As time goes on in this course, this description will change and include additio
 ** [grep] Command Line Notes:**
 Note: (filename) in these notes is where you enter name of the file you are searching in, you DO NOT need the file name in paranthesis.
 Note: "word" in these notes is what thing you want to search for, you have to have the word in quotation marks.
-Note: [grep] is case sensitive.
+Note: [grep] is case sensitive but there is a way to make it ignore case sensetivity.
 - Basic [grep] search: grep "word" (file name)
-- To ignore wordcase sensitivity: grep "word" (file name)
-- To search lines that do not match out string, use the combination: grep -vi "word" (file name)
+- To ignore wordcase sensitivity: grep -i "word" (file name)
+- To search lines that do not match out string, use the combination (by having the "i" in there, it ignores case sensitivity): grep -vi "word" (file name)
 - To remove the first row (best for spreadsheets with headers), you will need to have the "^" in the quotes:grep -vi "^word" (file name)
+- To count the lines with a certain word, use: grep -ic "word" (file title)
+- To conduct a Boolean OR search in a data sheet, you will need the quotations and parenthesis as is in this example, use: grep -Ei "(word1|word2)" (file name)
+- To search more in a Boolean search, add more vertical bars: grep -Ei "(word1|word2|word3)" (file name)
