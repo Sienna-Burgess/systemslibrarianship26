@@ -55,7 +55,7 @@ Note: [grep] is case sensitive but there is a way to make it ignore case senseti
 - To search more in a Boolean search, add more vertical bars: grep -Ei "(word1|word2|word3)" (file name)
 
 
-### Week 6 Notes- the [sudo] Command: 
+### Week 6 Notes- the [sudo] Command and [yaz-client]: 
 The [sudo] command can be used to: 
 	- Modify files
 	- Create directories
@@ -82,4 +82,28 @@ The [sudo] command can be used to:
 - To get more specific information about a package, we use the command: 
 	apt show tldr
   This will give us the package name, the version numberm and the url.
-  
+
+[yaz-client] Notes:
+- [yaz-client] is an information retrieval client that uses the Z39.50/SRU protocols to query bibliographic databases.
+	- Z39.50 is a standard protocol in libraries for:
+		- Sharing
+		- Querying
+		- Retrieving bibliographic information between library databases.
+- The [yaz-client] is a SRU (search/retrieve via URL) as well. The [yaz-client] allows us to interact with these protocols directly from the command line.
+
+[yaz-client] Commandline Notes:
+- To access the man page for the [yaz-client] documentation, use: 
+	man yaz-client
+	This opens the program and will give us a list of [yaz-client] commands.
+- To search quite a few bibliographic attributes, including many metadata fields, use: 
+	man bib1-attr
+	*This is perfect in searching MARC record information.
+Link to [Bib-1 Attribute Set](https://www.loc.gov/z3950/agency/defns/bib1.html)
+- To start the [yaz-client], use:
+	yaz-client
+	*This creates a new commandline interface with a new prompt.
+- Then connect to a library's OPAC or discovery service using the [open] command:
+	open saalck-uky.alma.exlibrisgroup.com:1921/01SAA_UKY
+	*This connects us to InfoCat!
+-Each search we do here uses a number that corresponds to the number in the [Bib-1 Attribute Set](https://www.loc.gov/z3950/agency/defns/bib1.html)
+
