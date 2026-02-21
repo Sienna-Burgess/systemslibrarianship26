@@ -45,6 +45,7 @@ As time goes on in this course, this description will change and include additio
 Note: (filename) in these notes is where you enter name of the file you are searching in, you DO NOT need the file name in paranthesis.
 Note: "word" in these notes is what thing you want to search for, you have to have the word in quotation marks.
 Note: [grep] is case sensitive but there is a way to make it ignore case sensetivity.
+[grep] Commandline Notes:
 - Basic [grep] search: grep "word" (file name)
 - To ignore wordcase sensitivity: grep -i "word" (file name)
 - To search lines that do not match out string, use the combination (by having the "i" in there, it ignores case sensitivity): grep -vi "word" (file name)
@@ -52,3 +53,33 @@ Note: [grep] is case sensitive but there is a way to make it ignore case senseti
 - To count the lines with a certain word, use: grep -ic "word" (file title)
 - To conduct a Boolean OR search in a data sheet, you will need the quotations and parenthesis as is in this example, use: grep -Ei "(word1|word2)" (file name)
 - To search more in a Boolean search, add more vertical bars: grep -Ei "(word1|word2|word3)" (file name)
+
+
+### Week 6 Notes- the [sudo] Command: 
+The [sudo] command can be used to: 
+	- Modify files
+	- Create directories
+	- Perform other maintanence tasks needed to install and manage software
+
+[sudo] Commandline Notes: 
+- To create a "data" directory, for example in: /usr/local/bin  first, you open that file: 
+	cd /usr/local/bin
+  Then use sudo:
+	sudo mkdir data
+	
+- To check for updates in your system, use the command: 
+	sudo apt update
+  If there are updates that are needed, we will use the command for the upgrades:
+  	sudo apt upgrade
+
+- To remove cashed package files and free up disc space, use the command: 
+	sudo apt clean
+
+- To pull up simple help pages and examples of the most commonly used commands, use:
+	apt search tldr
+   *Cool note: tldr means too long don't read
+
+- To get more specific information about a package, we use the command: 
+	apt show tldr
+  This will give us the package name, the version numberm and the url.
+  
