@@ -105,5 +105,47 @@ Link to [Bib-1 Attribute Set](https://www.loc.gov/z3950/agency/defns/bib1.html)
 - Then connect to a library's OPAC or discovery service using the [open] command:
 	open saalck-uky.alma.exlibrisgroup.com:1921/01SAA_UKY
 	*This connects us to InfoCat!
--Each search we do here uses a number that corresponds to the number in the [Bib-1 Attribute Set](https://www.loc.gov/z3950/agency/defns/bib1.html)
+- Each search we do here uses a number that corresponds to the number in the [Bib-1 Attribute Set](https://www.loc.gov/z3950/agency/defns/bib1.html)
+- In our example, we entered in: 
+	find @and @attr 1=4 "information" @attr 1=21 "library science"
+		or the slightly shorter version:
+	f @and @attr 1=4 "information" @attr 1=21 "library science"
+	*There we pulled 723 records but it does not show the records. To see the records use:
+	show 1
+	*This will show the first record. To see the second record, use:
+	show 2
+	*and so on. 
+	*To clear the screen on yaz-client, use:
+	ctrl+L
+- To search a personal name, use: 
+	f @attr 1=1 "first name, last"
 
+Opening yaz-client with -m
+- To open the yaz-client with -m, we use: 
+	yaz-client -m records.marc
+- To open the UKY portal againm we can use the up arrow key to scroll through previous commands. 
+	*After doing a search, we exited. 
+- To look at the records we have, use: 
+	ls -l
+	*This will also show records.marc
+- To look at this file, use: 
+	head records.marc
+	*What pulls up is not human friendly. It is showing us the MARC record. 
+- To see what files are, use: 
+	file records.marc
+- To see what all was downloaded when we installed yaz, use: 
+	apropos yaz
+- To-?
+	yaz-marcdump -o json records.marc > records.json
+- Then to transfer the record into a json filem use: 
+	head records.json
+	*A json file is a standard-based format for structured data. json is basically a competitor to XML.
+- To examine these files in a better way, use: 
+	jq . records.json > records_formatted.json
+	*Then to open that up, use:
+	vi records_formatted.json
+- To pull out all the fields, use:
+	jq '.fields[]'records_formatted.json
+- We can also specify fields, for example, the 650 field: 
+	jq '.fields[] | select(has("650")) | ["650].subfields[] | select(has("a")) | .a' records_formatted.json
+	
