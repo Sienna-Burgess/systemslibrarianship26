@@ -152,7 +152,7 @@ Opening yaz-client with -m
 ### Module 7 Notes: Installing the Apache Web Server###
 - Goal: To install and use the Apache web server, which is one of the most popular web server applications. 
 
-***Command Line Notes:**
+***Command Line Notes:
 	- To figure out the specific package name, use: 
 		apt search apache2 | head
 	- The first package returned is what is needed: 
