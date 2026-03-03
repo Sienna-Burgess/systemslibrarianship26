@@ -153,8 +153,10 @@ Opening yaz-client with -m
 - Goal: To install and use the Apache web server, which is one of the most popular web server applications. 
 
 ***Command Line Notes:**
+
 	- To figure out the specific package name, use: 
 		apt search apache2 | head
+		
 	- The first package returned is what is needed: 
 		apache2/noble-updates, noble securuty 2.4.58-1 ubuntu8.1amd64
 	- To install apache, we begin with:
