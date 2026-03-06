@@ -3,7 +3,7 @@
 ### Module 4: LAMP Server                                                                   
 
                                                                                                                                                         
-### Module 7 Notes: Installing the Apache Web Server###                                    
+### Section 7 Notes: Installing the Apache Web Server###                                    
  - Goal: To install and use the Apache web server, which is one of the most popular web serv
                                                                                             
  ***Command Line Notes:                                                                     
@@ -28,11 +28,59 @@
          (This IP address will be located after the 2nd 'inet')                             
  - To get to the Apache2 default page, use:                                             
          elinks http://10.128.0.3                                                           
- - To see the default page outside of our VM, we need our servers public IP address, whi
+ - To see the default page outside of our VM, we need our servers public IP address, which is located
 
 
 
+### Section 8 Notes: Installing and Configuring PHP###
+- Note: PHP is a server-side programming language, which means it must be installed on the server.
+		PHP- Hypertext Preprocessor
 
+- Goal: Install and configure PHP on our virtual instances to work with the Apache webserver software.
+
+- Command Line Notes: 
+	- To see info about php, use:
+		apt show php
+	- To install PHP, use: 
+		sudo apt install phplibapache2-mod-php
+	- Once it is installed, we will confirm it is installed: 
+		sudo systemctl restart apache2
+	- Then to confirm the installed version, use:
+		php -v
+	- To check its status and see if there are any errors in the log output, use: 
+		systemctl status apache2
+	- To check that PHP is installed and working with Apache, we need to make a small PHP file in our web doc root. 
+	  To do this, use: 
+	  	cd /var/www/html/
+	  *remember, [cd] ceated the document root.
+	- Then, we create a file:
+		sudo micro info.php
+	- In that file, we added the following text:
+		<?php
+		phpinfo();,
+		?>
+	  *Note: each statement in a PHP function has to end with a semicolon! 
+	- Next, we will visit that file from a browser (outside of the VM). To do this, search:
+		http://34.171.244.152/info.php
+	  *This will provide us with a page that provides system information about PHP, Apache and the server. 
+	- Because of how our file system is lined up, we will want to configure it. Before we do thism we want to create a back-up. To do this, use: 
+		cd /etc/apache2/mods-available/
+	 Then:
+	 	ls
+	- Then we are going to edit the [dir.conf] file using: 
+		sudo cp dir.conf dir.conf.bak
+	  *This created a copy of the [dir.conf] file, incase we mess up, we have a copy of the OG file.
+	- Next, we will open the [dir.conf] file with our editor of choice:
+		sudo micro dir.conf
+	- In our editor, we changed the line up to: 
+		DirectoryIndex index.php index.html index.cgi index.pl index.xhtml index.htm
+	- When we do a configure change, we should check by using [apachectl]. So here, we do:
+		apachectl configtest
+	- Nextm we reload Apache:
+		sudo systemctl reload apache2
+	- Then, we will get the status:
+		systemctl status apache2
+		
                                                                 
                                                                                            
                                                                                               
