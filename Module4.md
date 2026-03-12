@@ -81,15 +81,31 @@
 	- Then, we will get the status:
 		systemctl status apache2
 		
-                                                                
+
+
+                                        
                                                                                            
-                                                                                              
 
+### Section 9: Installing and Configuring MySQL###
+- Goal: To install, set up, secure, and configure the MySQL relational database to work with the Apache web server and the PHP programming language.
 
-
-
-
-
-
+- Command Line Notes: 
+	- To install the default MySQL server use: 
+		sudo apt install mysql-server
+	- To confirm which versions are available, use: 
+		apt policy mysql-server
+	- To confirm the version number, use: 
+		mysql --version
+	- Once it is installed, we can check if it is running and enable using the [systemctl] command:
+		systemctl status my sql
+	- To perform some security checks and create a secure, baseline configuration of MySQL, use:
+		sudo mysql_secure_installation
+	- To login to the database, use:
+		sudo mysql -u root
+	- When connecting to a MySQL server, and you want a list of the available databases, use: 
+		mysql> [show databases;]
+	- To exit the MySQL server prompt and return to the Bash shellm use:
+		mysql> \q
+		
 
 
