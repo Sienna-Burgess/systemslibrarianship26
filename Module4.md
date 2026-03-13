@@ -106,6 +106,100 @@
 		mysql> [show databases;]
 	- To exit the MySQL server prompt and return to the Bash shellm use:
 		mysql> \q
+
+- Create and Set Up a Regular User Account
+	- To create an [opacuser], we use:
+			- mysql> create user 'opacuser'@'localhost' identified by 'this_is_a_test123';
+
+	- To clear the screen, use:
+			- ctrl+l
+
+- Create a Practice Database
+	- To create a new database for the user account we just created, we will name it [opacbd] and set the character encoding to UTF-8 to support international characters:
+		- mysql> create database opacdb default character set utf8mb4 collate utf8mb4_0900_ai_ci;
+
+	- Then run the MySQL [show] command to view the new database:
+		- mysql> show databases;
+	- Next, grat all privileges on the database to the user account [opacuser]
+		- mysql> grant all privileges on opacdb.* to 'opacuser'@'localhost';
+
+- Logging in as Regular User and Creating Tables Commandline Notes:
+	- Next we need to pull information from our [~/.bashrc] file, to do so, use:
+		- micro ~/.bashrc
+	- Scroll to the bottom od the file and add the following:
+		- export  MYSQL_PS1="[\d]>"
+	- Then save and exit:
+		- source ~/.bashrc
+	- Then, we will log into our user, using:
+		- mysql -u opacuser -p
+		**Be mindful that when you are typing in the password, it does not show anything.
+	- From the MySQL prompt, list the available databases and use the [use] vommand to switch to the new [opacdb] database using:
+		- show databases;
+			then:
+		- use opacdb;
+	- From here, we will be adding code to our [opacdb] database. The table will be called [books], to do this use:
+		- create table books (
+		-> id int unsigned not null auto_increment,
+		-> author varchar(150) not null,
+		-> title varchar(150) not null,
+		-> copyright year not null,
+		-> primary key (id)
+		-> );
+	- To confirm that the table was created use the following commands:
+		- show tables;
+		- describe books;
+	* to clear the screen, use:
+		- ctrl+l
+
+- Adding Records into the Table
+ insert into books (author, title, copyright) values
+    -> ('Jennifer Egan', 'The Candy House', '2002'),
+    -> ('Imbolo Mbue', 'How Beautiful We Were', '2021'),
+    -> ('Lydia Millet', 'A Children\'s Bible', '2020'),
+    -> ('Julia Phillips', 'Disappearing Earth', '2019');
+
+	- Here you can see the entire record within patanthesis, and then each data for each field is in single quotes, and then each line ends with a comma.
+	- The "\" in Children\'s escapes the quote
+
+- Testing Commands
+	- select author from books;
+	- select copyright  from books;
+	- select author, title from books;
+	- select author from books where author like '%millet%';
+	- select author, title from books where title not like '%e';
+	- select * from books;
+	- select title from books where author like '%mbue%';
+	- alter table books add publisher varchar(75) after title;
+	- describe books;
+	- update books set publisher='Simon & Schuster' where id='1';
+	- update books set publisher='Penguin Random House' where id='2';
+	- update books set publisher='W. W. Norton & Company' where id='3';
+	- update books set publisher='Knopf' where id='4';
+	- select * from books;
+	- delete from books where author='Julia Phillips';
+	- insert into books
+		(author, title, publisher, copyright) values
+		('Emma Donoghue', 'Room', 'Little, Brown & Company', '2010'),
+		('Zadie Smith', 'White Teeth', 'Hamish Hamilton', '2000');
+	- select * from books;
+	- select author, publisher from books where copyright < '2011';
+	- select author from books order by copyright;
+	- select author, copyright from books order by copyright;
+	- select author, copyright from books order by copyright desc;
+	- \q
+
+- Install PHP and MySQL Support
+	- To complete the connection between PHP and MySQL, we first install PHP support for MySQL:
+		sudo apt install php-mysql
+	- And then restart Apache and MySQL:
+		sudo systemctl restart apache2
+		sudo systemctl restart mysql
+
+- Create PHP Scripts
+	-  cd /var/www
+	- sudo touch login.php
+	- sudo chmod 640 login.php
+	- sudo chown :www-data login.php
+	- ls -l login.php
+	- sudo nano login.php
 		
-
-
