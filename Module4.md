@@ -107,14 +107,14 @@
 	- To exit the MySQL server prompt and return to the Bash shellm use:
 		mysql> \q
 
-- Create and Set Up a Regular User Account
+- Create and Set Up a Regular User Account:
 	- To create an [opacuser], we use:
 			- mysql> create user 'opacuser'@'localhost' identified by 'this_is_a_test123';
 
 	- To clear the screen, use:
 			- ctrl+l
 
-- Create a Practice Database
+- Create a Practice Database:
 	- To create a new database for the user account we just created, we will name it [opacbd] and set the character encoding to UTF-8 to support international characters:
 		- mysql> create database opacdb default character set utf8mb4 collate utf8mb4_0900_ai_ci;
 
@@ -138,7 +138,7 @@
 			then:
 		- use opacdb;
 	- From here, we will be adding code to our [opacdb] database. The table will be called [books], to do this use:
-		- create table books (
+		- create table books 
 		-> id int unsigned not null auto_increment,
 		-> author varchar(150) not null,
 		-> title varchar(150) not null,
@@ -151,41 +151,59 @@
 	* to clear the screen, use:
 		- ctrl+l
 
-- Adding Records into the Table
+- Adding Records into the Table:
  insert into books (author, title, copyright) values
     -> ('Jennifer Egan', 'The Candy House', '2002'),
     -> ('Imbolo Mbue', 'How Beautiful We Were', '2021'),
     -> ('Lydia Millet', 'A Children\'s Bible', '2020'),
     -> ('Julia Phillips', 'Disappearing Earth', '2019');
 
-	- Here you can see the entire record within patanthesis, and then each data for each field is in single quotes, and then each line ends with a comma.
+	- Here you can see the entire record within paranthesis, and then each data for each field is in single quotes, and then each line ends with a comma.
 	- The "\" in Children\'s escapes the quote
 
-- Testing Commands
-	- select author from books;
-	- select copyright  from books;
-	- select author, title from books;
-	- select author from books where author like '%millet%';
-	- select author, title from books where title not like '%e';
-	- select * from books;
-	- select title from books where author like '%mbue%';
-	- alter table books add publisher varchar(75) after title;
-	- describe books;
-	- update books set publisher='Simon & Schuster' where id='1';
-	- update books set publisher='Penguin Random House' where id='2';
-	- update books set publisher='W. W. Norton & Company' where id='3';
-	- update books set publisher='Knopf' where id='4';
-	- select * from books;
-	- delete from books where author='Julia Phillips';
-	- insert into books
+- Testing Commands:
+	- To pull the author from the books:
+		-  select author from books;
+	- To pull the copyright year from the books:
+		- select copyright  from books;
+	- To pull the author and title from books:
+		- select author, title from books;
+	- To pull books whose author’s name has Millet in it:
+		- select author from books where author like '%millet%';
+	- To pull authors: Emma Donoghue and Zadie Smith and their books: Room and White Teeth:
+		- select author, title from books where title not like '%e';
+	- To pull out table and information:
+		- select * from books;
+	- To pull books where the author's name has Mbue in it:
+		- select title from books where author like '%mbue%';
+	- To add a line or graph point specifically for publisher, use:
+		- alter table books add publisher varchar(75) after title;
+	- Pulls up the chart and the data fields created:
+		- describe books;
+	- To place “Simon & Schuster” as the publisher in the first data line. The first data line has Jennifer Egan as the author. 
+		- update books set publisher='Simon & Schuster' where id='1';
+	- To place “Penguin Random House” as the publisher in the second data line. The second data line has Imbolo Mbue as the author
+		- update books set publisher='Penguin Random House' where id='2';
+	- To place “W. W. Norton & Company” as the publisher in the third data line. The third data line has Lydia Millet as the author. 
+		- update books set publisher='W. W. Norton & Company' where id='3';
+	- To place “Knopf” as the publisher in the fourth data line. The fourth data line has Julia Phillips as the author:
+		- update books set publisher='Knopf' where id='4';
+		- select * from books;
+		- delete from books where author='Julia Phillips';
+	- To insert two additional data point:
+		- insert into books
 		(author, title, publisher, copyright) values
 		('Emma Donoghue', 'Room', 'Little, Brown & Company', '2010'),
 		('Zadie Smith', 'White Teeth', 'Hamish Hamilton', '2000');
 	- select * from books;
-	- select author, publisher from books where copyright < '2011';
-	- select author from books order by copyright;
-	- select author, copyright from books order by copyright;
-	- select author, copyright from books order by copyright desc;
+	- To pull authors and the publisher information for books with a copyright date of 2011. 
+		- select author, publisher from books where copyright < '2011';
+	- To order the books by their copyright date, from oldest to newest. 
+		- select author from books order by copyright;
+	- To pull the author’s name and copyright year. This data is placed in order from oldest to newest. 
+		- select author, copyright from books order by copyright;
+	- To order the books by copyright year in descending order:
+		- select author, copyright from books order by copyright desc;
 	- \q
 
 - Install PHP and MySQL Support
@@ -202,4 +220,5 @@
 	- sudo chown :www-data login.php
 	- ls -l login.php
 	- sudo nano login.php
-		
+
+
