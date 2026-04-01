@@ -392,6 +392,7 @@ As time goes on in this course, this description will change and include additio
 	- Next we will save and go out. Here we will type the following command:
 		sudo micro insert.php
 	- Then we will put the PHP script in, called insert.php:
+	
 		<!DOCTYPE html>
 		<html>
 		<head>
@@ -546,14 +547,14 @@ As time goes on in this course, this description will change and include additio
 
 - Reflections:
 
-		- o	Overall, the OPAC and cataloging module chapters in the textbook were clear. I think as we worked on building our barebones OPAC, things began to make a lot more sense. Just reading the information at first, things did not click, but as we moved through creating our relational databases, creating the HTML page and PHP search page, and creating the cataloging page, everything made a lot more sense. In this course, I have found that the visual examples and working through these exercises have helped me the most. 
+		- Overall, the OPAC and cataloging module chapters in the textbook were clear. I think as we worked on building our barebones OPAC, things began to make a lot more sense. Just reading the information at first, things did not click, but as we moved through creating our relational databases, creating the HTML page and PHP search page, and creating the cataloging page, everything made a lot more sense. In this course, I have found that the visual examples and working through these exercises have helped me the most. 
 
-		- o	Overall, most of this process was easy to follow. I made sure to consistently take my time (until the end where I made a silly mistake that I will discuss below). I did do a little extra reading in understanding the connection between all of these systems to better understand how they are all connected and what they are doing.
+		- Overall, most of this process was easy to follow. I made sure to consistently take my time (until the end where I made a silly mistake that I will discuss below). I did do a little extra reading in understanding the connection between all of these systems to better understand how they are all connected and what they are doing.
 
-		- o	Attention to detail is critical in working with databases, software code, and system documentation because each error can cause huge issues either immediately, or down the road. One issue I ran into, which demonstrates why attention to detail is important is near the end, when I was telling Apache2 web server that the webpage was going to have control access. I didn’t realize that I mistyped the command [sudo micro /etc/apache2/apache2.conf]. I had mistyped the ‘etc’ and typed “ect”, which was a small error that caused an internal error on my website. 
+		- Attention to detail is critical in working with databases, software code, and system documentation because each error can cause huge issues either immediately, or down the road. One issue I ran into, which demonstrates why attention to detail is important is near the end, when I was telling Apache2 web server that the webpage was going to have control access. I didn’t realize that I mistyped the command [sudo micro /etc/apache2/apache2.conf]. I had mistyped the ‘etc’ and typed “ect”, which was a small error that caused an internal error on my website. 
 
-		- o	An issue that could occur down the road is if we are not working carefully in our databases. If we are not careful when typing in information, then our relational databases will not connect to each other.
+		- An issue that could occur down the road is if we are not working carefully in our databases. If we are not careful when typing in information, then our relational databases will not connect to each other.
 
-		- o	This assignment connects to real-world library systems and their maintenance, because even though this is a bare bones version, this is still a building block into what our databases are today. As we move forward, we can build upon this foundational knowledge to propel us forward into the more complex versions of the databases we use. 
+		- This assignment connects to real-world library systems and their maintenance, because even though this is a bare bones version, this is still a building block into what our databases are today. As we move forward, we can build upon this foundational knowledge to propel us forward into the more complex versions of the databases we use. 
 		
 
