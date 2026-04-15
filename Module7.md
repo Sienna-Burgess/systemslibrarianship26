@@ -199,3 +199,6 @@
 I am on a screen, pretty much all day, and all this semester, my eyes have felt fatigued by this. My job is computer heavy, and then after work, I am doing HW, which is also on a computer. 
 I know it may sound silly, but by having this lesson printed out, I was able to rest my eyes inbetween sections because I would read, highlight and make notes before working through this module.
 In this final section, it was really cool to see all the pieces start to come together. I am now nervous/excited to use WordPress to finalize the public facing side of the website. 
+This time around, I can say that I didn't run into any problems. With printing out the instructions and taking my time, things actually went smoothly, which is a huge relief. 
+I feel that this class built up to this assignment really well, so while working through this, it felt overall familiar. 
+This component builds onto the foundational systems that we use in the library. It is important to understand the backend because it effects the front end operations. It also helps us to appreciate the hard work that our systems librarians do! 
